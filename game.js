@@ -1,22 +1,28 @@
 let game = {
     ctx:null,
-    background:null,
-    ball:null,
-    platform:null,
+    sprites:{
+        background:null,
+        ball:null,
+        platform:null,
+    },
     //инициализация
     init:function() {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
     },
     // загрузка спрайтов
-    preload:function() {
-        this.background = new Image();
-        this.background.src = "img/background.png";
-
-        this.ball = new Image();
-        this.ball.src = "img/ball.png";
-
-        this.platform = new Image();
-        this.platform.src = "img/platform.png";
+    preload:function(callback) {
+        let loaded = 0;
+        let required = Object.keys(this.sprites).length;
+        for(let key in this.sprites){
+            this.sprites[key] = new Image();
+            this.sprites[key].src = "img/"+ key + ".png";
+            this.sprites[key].addEventListener("load", () => {
+                ++loaded;
+                if(loaded >= required){
+                    callback();
+                }
+            });
+        }
     },
     // запуск
     run:function() {
@@ -26,14 +32,15 @@ let game = {
     },
     //отрисовка
     render: function (){
-        this.ctx.drawImage(this.background, 0, 0);
-        this.ctx.drawImage(this.ball, 0, 0);
-        this.ctx.drawImage(this.platform, 100,100);
+        this.ctx.drawImage(this.sprites.background, 0, 0);
+        this.ctx.drawImage(this.sprites.ball, 0, 0);
+        this.ctx.drawImage(this.sprites.platform, 100,100);
     },
     start: function() {
         this.init();
-        this.preload();
-        this.run();
+        this.preload(()=>{
+            this.run();
+        });
     }
 };
 
