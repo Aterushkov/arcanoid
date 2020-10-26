@@ -1,5 +1,7 @@
 let game = {
     ctx:null,
+    platform:null,
+    ball:null,
     sprites:{
         background:null,
         ball:null,
@@ -33,8 +35,8 @@ let game = {
     //отрисовка
     render: function (){
         this.ctx.drawImage(this.sprites.background, 0, 0);
-        this.ctx.drawImage(this.sprites.ball, 0, 0);
-        this.ctx.drawImage(this.sprites.platform, 100,100);
+        this.ctx.drawImage(this.sprites.ball, this.ball.x, this.ball.y,this.ball.w,this.ball.h);
+        this.ctx.drawImage(this.sprites.platform, this.platform.x,this.platform.y,this.platform.w,this.platform.h);
     },
     start: function() {
         this.init();
@@ -43,7 +45,18 @@ let game = {
         });
     }
 };
-
+game.ball ={
+    x:280,
+    y:270,
+    w:30,
+    h:30,
+};
+game.platform ={
+   x:220,
+   y:300,
+   w:150,
+   h:30,
+};
 window.addEventListener("load", () => {
     game.start();
 });
