@@ -15,6 +15,21 @@ let game = {
     //инициализация
     init:function() {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
+        this.setEvents();
+    },
+    //Нажатие на клавиши
+    setEvents: function(){
+        window.addEventListener("keydown", e=>{
+            //37 влево 39 вправо
+            if(e.keyCode === 37){
+                this.platform.dx = -this.platform.velocity;
+            } else if(e.keyCode === 39){
+                this.platform.dx = this.platform.velocity;
+            }
+        });
+        window.addEventListener("keyup", e=>{
+            this.platform.dx = 0;
+        });
     },
     // загрузка спрайтов
     preload:function(callback) {
@@ -45,10 +60,15 @@ let game = {
             }
         }
     },
+    update:function (){
+        this.platform.move();
+    },
     // запуск
     run:function() {
         window.requestAnimationFrame(() => {
-          this.render();
+            this.update();
+            this.render();
+            this.run();
         });
     },
     //отрисовка
@@ -56,8 +76,10 @@ let game = {
         this.ctx.drawImage(this.sprites.background, 0, 0);
         this.ctx.drawImage(this.sprites.ball, this.ball.x, this.ball.y,this.ball.w,this.ball.h);
         this.ctx.drawImage(this.sprites.platform, this.platform.x,this.platform.y,this.platform.w,this.platform.h);
+        this.renderBlocks();
+    },
+    renderBlocks:function (){
         for( let block of this.blocks){
-            console.log(this.blocks);
             this.ctx.drawImage(this.sprites.block, block.x,block.y,this.block.w,this.block.h);
         }
     },
@@ -69,6 +91,7 @@ let game = {
         });
     }
 };
+//Объекты
 game.block ={
     x:0,
     y:0,
@@ -82,10 +105,17 @@ game.ball ={
     h:30, //Высота
 };
 game.platform ={
-   x:220,
-   y:300,
-   w:150, //Длинна
-   h:30,  //Высота
+    velocity:6,
+    dx:0,
+    x:220,
+    y:300,
+    w:150, //Длинна
+    h:30,  //Высота
+    move(){
+        if(this.dx){
+            this.x += this.dx;
+        }
+    }
 };
 window.addEventListener("load", () => {
     game.start();
