@@ -1,6 +1,7 @@
 const KEYS ={
     LEFT: 37,
-    RIGHT:39
+    RIGHT: 39,
+    SPACE: 32,
 }
 let game = {
     ctx:null,
@@ -24,8 +25,9 @@ let game = {
     //Нажатие на клавиши
     setEvents: function(){
         window.addEventListener("keydown", e=>{
-            //37 влево 39 вправо
-            if(e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT){
+            if(e.keyCode === KEYS.SPACE){
+                this.platform.fire();
+            }else if(e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT){
                 this.platform.start(e.keyCode);
             }
         });
@@ -64,6 +66,7 @@ let game = {
     },
     update:function (){
         this.platform.move();
+        this.ball.move();
     },
     // запуск
     run:function() {
@@ -105,6 +108,16 @@ game.ball ={
     y:270,
     w:30, //Длинна
     h:30, //Высота
+    dy:0,
+    velocity:3,
+    start(){
+        this.dy = this.velocity;
+    },
+    move(){
+        if(this.dy){
+            this.y += -this.dy;
+        }
+    },
 };
 game.platform ={
     velocity:6,
@@ -113,10 +126,19 @@ game.platform ={
     y:300,
     w:150, //Длинна
     h:30,  //Высота
+    ball:game.ball,
+    fire(){
+        if(this.ball){
+            this.ball.start();
+            this.ball = null;
+        }
+    },
     move(){
         if(this.dx){
             this.x += this.dx;
-            game.ball.x +=this.dx;
+            if(this.ball){
+                this.ball.x +=this.dx;
+            }
         }
     },
     stop(){
