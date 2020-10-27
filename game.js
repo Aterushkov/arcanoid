@@ -4,6 +4,7 @@ const KEYS ={
     SPACE: 32,
 }
 let game = {
+    running:true,
     ctx:null,
     platform:null,
     ball:null,
@@ -93,11 +94,13 @@ let game = {
     },
     // запуск
     run:function() {
-        window.requestAnimationFrame(() => {
-            this.update();
-            this.render();
-            this.run();
-        });
+        if(this.running){
+            window.requestAnimationFrame(() => {
+                this.update();
+                this.render();
+                this.run();
+            });
+        }
     },
     //отрисовка
     render: function (){
@@ -202,7 +205,9 @@ game.ball ={
             this.y = 0;
             this.dy = this.velocity;
         }else if(ballBottom > worldBottom){
-            console.log('Game over');
+            game.running = false;
+            alert('Game over');
+            window.location.reload();
         }
     },
 };
