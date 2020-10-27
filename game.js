@@ -71,11 +71,18 @@ let game = {
     update:function (){
         this.platform.move();
         this.ball.move();
+        this.collideBlocks();
+        this.collidePlatform();
+
+    },collideBlocks(){
         for(let block of this.blocks){
-           if(this.ball.collide(block)){
-               this.ball.bumpBlock(block);
-            console.log("fddd");
-           }
+            if(this.ball.collide(block)){
+                this.ball.bumpBlock(block);
+            }
+        }
+    }, collidePlatform(){
+        if(this.ball.collide(this.platform)){
+            this.ball.bumpPlatform(this.platform);
         }
     },
     // запуск
@@ -150,6 +157,11 @@ game.ball ={
     },
     bumpBlock: function (block){
         this.dy *= -1;
+    },
+    bumpPlatform: function (platform){
+        this.dy *= -1;
+        let touchX = this.x + this.w / 2;
+        this.dx =  this.velocity * platform.getTouchOffset(touchX);
     }
 };
 game.platform ={
@@ -183,6 +195,12 @@ game.platform ={
         } else if(direction === KEYS.RIGHT){
             this.dx = this.velocity;
         }
+    },
+    getTouchOffset: function (x){
+        let diff = (this.x + this.w) - x;
+        let offset = this.w - diff;
+        let result = 2 * offset / this.w;
+        return result -1;
     }
 };
 window.addEventListener("load", () => {
