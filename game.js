@@ -11,6 +11,8 @@ let game = {
     blocks:[],
     rows: 4,
     cols: 8,
+    width: 640,
+    heigth: 360,
     sprites:{
         background:null,
         ball:null,
@@ -78,6 +80,7 @@ let game = {
     },
     //отрисовка
     render: function (){
+        this.ctx.clearRect(0,0,this.width,this.heigth);
         this.ctx.drawImage(this.sprites.background, 0, 0);
         this.ctx.drawImage(this.sprites.ball, this.ball.x, this.ball.y,this.ball.w,this.ball.h);
         this.ctx.drawImage(this.sprites.platform, this.platform.x,this.platform.y,this.platform.w,this.platform.h);
@@ -94,7 +97,10 @@ let game = {
             this.create();
             this.run();
         });
-    }
+    },
+    random:function (min,max){
+        return Math.floor(Math.random()*(max-min+1)+min);
+    },
 };
 //Объекты
 game.block ={
@@ -109,13 +115,18 @@ game.ball ={
     w:30, //Длинна
     h:30, //Высота
     dy:0,
+    dx:0,
     velocity:3,
     start(){
         this.dy = this.velocity;
+        this.dx = game.random(-this.velocity,this.velocity);
     },
     move(){
         if(this.dy){
             this.y += -this.dy;
+        }
+        if(this.dx){
+            this.x += this.dx;
         }
     },
 };
