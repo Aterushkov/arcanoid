@@ -73,6 +73,7 @@ let game = {
         this.collideBlocks();
         this.collidePlatform();
         this.ball.collideWorldBounds();
+        this.platform.collideWorldBounds();
         this.platform.move();
         this.ball.move();
     },
@@ -164,15 +165,18 @@ game.ball ={
     },
     bumpBlock: function (block){
         this.dy *= -1;
+        this.dx *= -1;
         block.active = false;
     },
     bumpPlatform: function (platform){
-        if(this.dy<0){
-            return;
+        if(platform.dx){
+            this.x +=platform.dx;
         }
-        this.dy = -this.velocity;
-        let touchX = this.x + this.w / 2;
-        this.dx =  this.velocity * platform.getTouchOffset(touchX);
+        if(this.dy>0){
+            this.dy = -this.velocity;
+            let touchX = this.x + this.w / 2;
+            this.dx =  this.velocity * platform.getTouchOffset(touchX);
+        }
     },
     collideWorldBounds:function (){
         let x = this.x + this.dx;
@@ -239,7 +243,19 @@ game.platform ={
         let offset = this.w - diff;
         let result = 2 * offset / this.w;
         return result -1;
-    }
+    },
+    collideWorldBounds:function (){
+        let x = this.x + this.dx;
+
+        let platformLeft = x;
+        let platformRight = platformLeft + this.w;
+        let worldLeft = 0;
+        let worldRight = game.width;
+
+        if(platformLeft < worldLeft || platformRight > worldRight){
+            this.dx = 0;
+        }
+    },
 };
 window.addEventListener("load", () => {
     game.start();
