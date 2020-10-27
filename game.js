@@ -4,6 +4,7 @@ const KEYS ={
     SPACE: 32,
 }
 let game = {
+    score:0,
     running:true,
     ctx:null,
     platform:null,
@@ -78,11 +79,18 @@ let game = {
         this.platform.move();
         this.ball.move();
     },
+    addScore(){
+        ++this.score;
+        if(this.score >= this.blocks.length){
+        this.end("You win");
+        }
+    },
     collideBlocks(){
         for(let block of this.blocks){
             if(block.active){
                 if(this.ball.collide(block)){
                     this.ball.bumpBlock(block);
+                    this.addScore();
                 }
             }
         }
@@ -116,6 +124,11 @@ let game = {
                 this.ctx.drawImage(this.sprites.block, block.x,block.y,this.block.w,this.block.h);
             }
         }
+    },
+    end(message){
+        this.running = false;
+        alert(message);
+        window.location.reload();
     },
     start: function() {
         this.init();
@@ -170,6 +183,7 @@ game.ball ={
         this.dy *= -1;
         this.dx *= -1;
         block.active = false;
+
     },
     bumpPlatform: function (platform){
         if(platform.dx){
@@ -205,9 +219,7 @@ game.ball ={
             this.y = 0;
             this.dy = this.velocity;
         }else if(ballBottom > worldBottom){
-            game.running = false;
-            alert('Game over');
-            window.location.reload();
+            game.end("Вы проиграли");
         }
     },
 };
