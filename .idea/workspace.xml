@@ -36,8 +36,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1\img" />
       <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1" />
+      <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1\img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -55,6 +55,7 @@
       <workItem from="1603791442322" duration="1921000" />
       <workItem from="1603809445719" duration="8000" />
       <workItem from="1603812292270" duration="1433000" />
+      <workItem from="1603911901221" duration="690000" />
     </task>
     <task id="LOCAL-00001" summary="26.10">
       <created>1603717928860</created>
@@ -147,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603822903739</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="27.10/9">
+      <created>1603823869538</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1603823869538</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,13 +175,14 @@
     <MESSAGE value="27.10/6" />
     <MESSAGE value="27.10/7" />
     <MESSAGE value="27.10/8" />
-    <option name="LAST_COMMIT_MESSAGE" value="27.10/8" />
+    <MESSAGE value="27.10/9" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.10/9" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1603822902648">
+    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1603823868495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603822902648" />
+    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603823868495" />
     <state x="1316" y="443" key="Github.CreateGistDialog" timestamp="1603714700527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -190,9 +199,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1212" y="225" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603822344098" />
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603822915481">
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603824050288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603822915481" />
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603824050288" />
   </component>
 </project>

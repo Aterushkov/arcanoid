@@ -21,13 +21,16 @@ let game = {
         platform:null,
         block:null
     },
+    sounds:{
+        bump:null
+    },
     //инициализация
-    init:function() {
+    init() {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
         this.setEvents();
     },
     //Нажатие на клавиши
-    setEvents: function(){
+    setEvents(){
         window.addEventListener("keydown", e=>{
             if(e.keyCode === KEYS.SPACE){
                 this.platform.fire();
@@ -40,24 +43,35 @@ let game = {
         });
     },
     // загрузка спрайтов
-    preload:function(callback) {
+    preload(callback) {
         let loaded = 0;
         let required = Object.keys(this.sprites).length;
-        let onImageLoad = () => {
+        required += Object.keys(this.sounds).length;
+
+        let onResoreseLoad = () => {
             ++loaded;
             if(loaded >= required){
                 callback();
             }
         };
-
+        this.preloadSprites(onResoreseLoad);
+        this.preloadSounds(onResoreseLoad);
+    },
+    preloadSprites(onResoreseLoad){
         for(let key in this.sprites){
             this.sprites[key] = new Image();
             this.sprites[key].src = "img/"+ key + ".png";
-            this.sprites[key].addEventListener("load",onImageLoad);
+            this.sprites[key].addEventListener("load",onResoreseLoad);
+        }
+    },
+    preloadSounds(onResoreseLoad){
+        for(let key in this.sounds){
+            this.sounds[key] = new Audio("sounds/" + key+ ".mp3");
+            this.sounds[key].addEventListener("canplaythrough",onResoreseLoad, {once:true});
         }
     },
     //Создание блоков
-    create: function (){
+    create (){
         for (let row = 0 ; row < this.rows; row++){
             for (let col = 0; col < this.cols; col++){
                 this.blocks.push({
@@ -71,7 +85,7 @@ let game = {
             }
         }
     },
-    update:function (){
+    update (){
         this.collideBlocks();
         this.collidePlatform();
         this.ball.collideWorldBounds();
@@ -91,17 +105,19 @@ let game = {
                 if(this.ball.collide(block)){
                     this.ball.bumpBlock(block);
                     this.addScore();
+                    this.sounds.bump.play();
                 }
             }
         }
     },
     collidePlatform(){
         if(this.ball.collide(this.platform)){
+            this.sounds.bump.play();
             this.ball.bumpPlatform(this.platform);
         }
     },
     // запуск
-    run:function() {
+    run() {
         if(this.running){
             window.requestAnimationFrame(() => {
                 this.update();
@@ -111,14 +127,14 @@ let game = {
         }
     },
     //отрисовка
-    render: function (){
+    render(){
         this.ctx.clearRect(0,0,this.width,this.heigth);
         this.ctx.drawImage(this.sprites.background, 0, 0);
         this.ctx.drawImage(this.sprites.ball, this.ball.x, this.ball.y,this.ball.w,this.ball.h);
         this.ctx.drawImage(this.sprites.platform, this.platform.x,this.platform.y,this.platform.w,this.platform.h);
         this.renderBlocks();
     },
-    renderBlocks:function (){
+    renderBlocks(){
         for( let block of this.blocks){
             if(block.active){
                 this.ctx.drawImage(this.sprites.block, block.x,block.y,this.block.w,this.block.h);
@@ -137,7 +153,7 @@ let game = {
             this.run();
         });
     },
-    random:function (min,max){
+    random(min,max){
         return Math.floor(Math.random()*(max-min+1)+min);
     },
 };
@@ -168,7 +184,7 @@ game.ball ={
             this.x += this.dx;
         }
     },
-    collide: function (element) {
+    collide(element) {
         let x = this.x + this.dx;
         let y = this.y + this.dy;
          if(x + this.w > element.x &&
@@ -179,13 +195,13 @@ game.ball ={
         }
         return false;
     },
-    bumpBlock: function (block){
+    bumpBlock(block){
         this.dy *= -1;
         this.dx *= -1;
         block.active = false;
 
     },
-    bumpPlatform: function (platform){
+    bumpPlatform(platform){
         if(platform.dx){
             this.x +=platform.dx;
         }
@@ -195,7 +211,7 @@ game.ball ={
             this.dx =  this.velocity * platform.getTouchOffset(touchX);
         }
     },
-    collideWorldBounds:function (){
+    collideWorldBounds(){
         let x = this.x + this.dx;
         let y = this.y + this.dy;
 
@@ -210,16 +226,20 @@ game.ball ={
         let worldBottom = game.heigth;
 
         if(ballLeft < worldLeft){
+            game.sounds.bump.play();
             this.x = 0;
             this.dx = this.velocity;
         }else if(ballRight > worldRight){
+            game.sounds.bump.play();
             this.x = worldRight - this.w;
             this.dx = -this.velocity;
         }else if(ballTop < worldTop){
+            game.sounds.bump.play();
             this.y = 0;
             this.dy = this.velocity;
         }else if(ballBottom > worldBottom){
             game.end("Вы проиграли");
+            game.sounds.bump.play();
         }
     },
 };
@@ -255,13 +275,13 @@ game.platform ={
             this.dx = this.velocity;
         }
     },
-    getTouchOffset: function (x){
+    getTouchOffset(x){
         let diff = (this.x + this.w) - x;
         let offset = this.w - diff;
         let result = 2 * offset / this.w;
         return result -1;
     },
-    collideWorldBounds:function (){
+    collideWorldBounds (){
         let x = this.x + this.dx;
 
         let platformLeft = x;
