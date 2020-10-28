@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fea67f74-9ad0-498f-b5e1-bb2268926099" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/ball.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/platform.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/block.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +43,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1\scripts" />
       <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1" />
       <recent name="C:\Users\Александр ДОМ\PhpstormProjects\Game1\img" />
     </key>
@@ -55,7 +63,8 @@
       <workItem from="1603791442322" duration="1921000" />
       <workItem from="1603809445719" duration="8000" />
       <workItem from="1603812292270" duration="1433000" />
-      <workItem from="1603911901221" duration="1736000" />
+      <workItem from="1603911901221" duration="3200000" />
+      <workItem from="1603915306349" duration="1797000" />
     </task>
     <task id="LOCAL-00001" summary="26.10">
       <created>1603717928860</created>
@@ -162,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603912820739</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="28.10/2">
+      <created>1603913655214</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603913655214</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,13 +200,14 @@
     <MESSAGE value="27.10/8" />
     <MESSAGE value="27.10/9" />
     <MESSAGE value="28.10/1" />
-    <option name="LAST_COMMIT_MESSAGE" value="28.10/1" />
+    <MESSAGE value="28.10/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="28.10/2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1603912818852">
+    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1603913653979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603912818852" />
+    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603913653979" />
     <state x="1316" y="443" key="Github.CreateGistDialog" timestamp="1603714700527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -207,9 +224,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1212" y="225" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603822344098" />
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603912828262">
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603913662765">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603912828262" />
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603913662765" />
   </component>
 </project>
