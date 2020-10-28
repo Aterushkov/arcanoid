@@ -28,6 +28,11 @@ let game = {
     init() {
         this.ctx = document.getElementById("mycanvas").getContext("2d");
         this.setEvents();
+        this.setTextFont();
+    },
+    setTextFont(){
+        this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.font = "20px Arial";
     },
     //Нажатие на клавиши
     setEvents(){
@@ -79,7 +84,7 @@ let game = {
                     w: this.ball.w,
                     h: this.ball.h,
                     x: 72 * col +25,
-                    y: 27 * row +10,
+                    y: 27 * row +30,
                 });
 
             }
@@ -133,6 +138,7 @@ let game = {
         this.ctx.drawImage(this.sprites.ball, this.ball.x, this.ball.y,this.ball.w,this.ball.h);
         this.ctx.drawImage(this.sprites.platform, this.platform.x,this.platform.y,this.platform.w,this.platform.h);
         this.renderBlocks();
+        this.ctx.fillText("Blokov ostalos:" + (this.blocks.length-this.score),10, 25);
     },
     renderBlocks(){
         for( let block of this.blocks){
