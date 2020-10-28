@@ -11,7 +11,7 @@ let game = {
     ball: null,
     blocks: [],
     score: 0,
-    rows: 6,
+    rows: 3,
     cols: 10,
     width: 1280,
     height: 720,
