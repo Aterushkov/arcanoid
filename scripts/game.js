@@ -122,7 +122,7 @@ let game = {
         ++this.score;
 
         if (this.score >= this.blocks.length) {
-            this.end("Вы победили");
+            this.end("Вы победили. Отправьте Ваш уникальный код нам на почту и получите приз! Ваш уникальный код: " + Math.random().toString(36).slice(-8));
         }
     },
     collideBlocks() {

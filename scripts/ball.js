@@ -67,7 +67,7 @@ game.ball = {
             this.dy = this.velocity;
             game.sounds.bump.play();
         } else if (ballBottom > worldBottom) {
-            game.end("Вы проиграли");
+            game.end("Победили тучки! Отправьте Ваш уникальный код нам на почту и получите утешительный приз! Ваш уникальный код: " + Math.random().toString(36).slice(-8));
         }
     },
     bumpBlock(block) {
