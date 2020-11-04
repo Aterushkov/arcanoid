@@ -56,8 +56,10 @@ let game = {
         window.addEventListener("keydown", e => {
             if (e.keyCode === KEYS.SPACE) {
                 this.platform.fire();
+                e.preventDefault();
             } else if (e.keyCode === KEYS.LEFT || e.keyCode === KEYS.RIGHT) {
                 this.platform.start(e.keyCode);
+                e.preventDefault();
             }
         });
         window.addEventListener("keyup", e => {

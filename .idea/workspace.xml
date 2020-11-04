@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fea67f74-9ad0-498f-b5e1-bb2268926099" name="Default Changelist" comment="" />
+    <list default="true" id="fea67f74-9ad0-498f-b5e1-bb2268926099" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rdf" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Game2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -56,6 +58,8 @@
       <workItem from="1603812292270" duration="1433000" />
       <workItem from="1603911901221" duration="3200000" />
       <workItem from="1603915306349" duration="3305000" />
+      <workItem from="1604486621288" duration="187000" />
+      <workItem from="1604487391646" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="26.10">
       <created>1603717928860</created>
@@ -183,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603917177058</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="end game">
+      <created>1604486714929</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1604486714929</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,14 +221,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="end game" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1603917176018">
+    <state x="1065" y="91" key="CommitChangelistDialog2" timestamp="1604486713479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603917176018" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604047215344">
+    <state x="1065" y="91" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604486713479" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604487410759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604047215344" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604487410759" />
     <state x="1316" y="443" key="Github.CreateGistDialog" timestamp="1603714700527">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,9 +245,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1212" y="225" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603822344098" />
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1603917184484">
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2" timestamp="1604486727526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603917184484" />
+    <state x="1084" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604486727526" />
   </component>
 </project>
